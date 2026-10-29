@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f5f1e9">
+<title>Marginalia · Reading & Journal</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">m.</span><div><strong>marginalia</strong><small>your reading life</small></div></div>
+    <button class="nav active" data-view="home">⌂ <span>Home</span></button>
+    <button class="nav" data-view="library">▤ <span>Library</span><b id="book-count">0</b></button>
+    <button class="nav" data-view="highlights">✳ <span>Highlights & quotes</span></button>
+    <button class="nav" data-view="journal">▧ <span>Book journal</span></button>
+    <button class="nav" data-view="vocabulary">Aa <span>Vocabulary</span></button>
+    <div class="side-bottom"><button class="nav" data-view="settings">⚙ <span>Settings & backup</span></button><p>Private by design.<br>Saved on this device.</p></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow" id="eyebrow">YOUR PERSONAL LIBRARY</span><h1 id="page-title">A little more reading.</h1></div><div class="top-actions"><button class="icon-button" id="theme-toggle" title="Toggle theme">◐</button><button class="primary" id="import-btn">＋ Add books</button><input type="file" id="file-input" accept=".epub,.pdf" multiple hidden></div></header>
+    <section id="content"></section>
+  </main>
+</div>
+<div id="reader" class="reader hidden">
+  <header class="reader-top"><button class="icon-button" id="close-reader">←</button><div class="reader-title"><strong id="reader-book-title">Reading</strong><small id="reader-book-meta"></small></div><div class="reader-tools"><button class="icon-button" id="reader-search-btn" title="Search in book">⌕</button><button class="icon-button" id="reader-settings-btn" title="Reading settings">Aa</button><button class="icon-button" id="reader-theme-btn" title="Reading theme">◐</button></div></header>
+  <div id="reader-search" class="reader-search hidden"><input id="book-search" placeholder="Search in this book…"><button class="secondary" id="search-go">Search</button><span id="search-status"></span></div>
+  <div id="reader-settings" class="reader-settings hidden"><label>Text size <input type="range" id="font-size" min="14" max="30" value="19"></label><label>Line spacing <input type="range" id="line-height" min="14" max="24" value="18"></label><button class="secondary" id="reader-sepia">Sepia</button></div>
+  <div class="reader-body"><nav id="toc" class="toc hidden"></nav><article id="reader-content" class="reader-content"><div class="reader-empty">Open an EPUB or PDF from your library to begin.</div></article></div>
+  <footer class="reader-footer"><button class="secondary" id="prev-page">← Previous</button><span id="reader-progress">Ready to read</span><button class="secondary" id="next-page">Next →</button></footer>
+  <div class="selection-pop hidden" id="selection-pop"><button data-action="highlight" data-color="yellow">Highlight</button><button data-action="quote">Save quote</button><button data-action="note">Add note</button><button data-action="word">Vocabulary</button><button data-action="search">Web search</button><button data-action="copy">Copy</button></div>
+</div>
+<div id="toast" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://unpkg.com/epubjs/dist/epub.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
